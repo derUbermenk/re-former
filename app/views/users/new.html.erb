@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<br>
+<!--
+<form action='/users' method='post'>
+  <input type='hidden' name='authenticity_token' value="<%= form_authenticity_token %>">
+  <input type='text' name='user[username]' value='Username'>
+  <input type='email' name='user[email]' value='Email'>
+  <input type='password' name='user[password]' value='password'>
+
+  <input type='submit' name='commit' value='Create user'>
+</form>
+-->
+
+<!--
+<%= form_tag('/users', method: :post) do %>
+  <%= text_field_tag 'user[username]', 'Username' %>
+  <%= email_field_tag 'user[email]', 'email@example.com' %>
+  <%= password_field_tag 'user[password]', 'password' %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+-->
+
+<% if @user.errors.any? %>
+  <div id='error_explanations'>
+    <em><%= pluralize(@user.errors.count, 'error')%><em>
+    <ul>
+      <% @user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username , 'Username: ' %>
+  <%= form.text_field :username %>
+  <%= form.label :email, 'Email: '%>
+  <%= form.email_field :email, placeholder: 'email@example.com' %>
+  <%= form.label :password, 'Password: '%>
+  <%= form.password_field :password %>
+  <%= form.submit %>
+<% end %>

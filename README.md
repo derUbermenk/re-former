@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<em> This is a part of the forms project in <b>TOP</b> <b>ROR</b> curriculum </em>
+<em> see it on <a href="http://www.theodinproject.com/">The Odin Project</a> </em>
